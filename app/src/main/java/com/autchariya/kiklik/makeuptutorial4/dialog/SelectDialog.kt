@@ -30,17 +30,26 @@ class SelectDialog : DialogFragment() {
 
 
       lateinit var URL :String
+    lateinit var TextTu :String
+
 
 
     companion object {
-        fun newInstance(url:String): SelectDialog{
+        fun newInstance(url:String,text:String): SelectDialog{
             val fragment:SelectDialog = SelectDialog()
             val bundle:Bundle = Bundle()
             bundle.putString("url",url)
+            bundle.putString("text",text)
             fragment.arguments = bundle
             return  fragment
+
+
         }
+
+
     }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
@@ -61,6 +70,7 @@ class SelectDialog : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         URL = arguments!!["url"] as String
+        TextTu = arguments !!["text"] as String
 
       //  btn_video.setOnClickListener {showVideo() }
 
@@ -69,8 +79,7 @@ class SelectDialog : DialogFragment() {
 //        intent.data = Uri.parse(URL)
 //        startActivity(intent)
 
-        btn_video.setOnClickListener {showVideo()  }
-
+        btn_video.setOnClickListener {showVideo() }
 
 
     }
@@ -84,11 +93,18 @@ class SelectDialog : DialogFragment() {
        // val s = URL
 
         intent.putExtra("value1", URL)
+        intent.putExtra("Text", TextTu)
         startActivity(intent)
+
 //        VideoTutorial.newInstance(URL)
 //        Log.e("url","url :$URL ")
 
-
     }
+//    private fun showText(){
+//
+//        val intent1 = Intent(context,VideoTutorial::class.java)
+//        intent1.putExtra("Texttu", TextTu)
+//        startActivity(intent1)
+//    }
 
 }

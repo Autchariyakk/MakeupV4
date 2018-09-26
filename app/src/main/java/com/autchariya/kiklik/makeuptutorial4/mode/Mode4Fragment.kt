@@ -24,7 +24,9 @@ class Mode4Fragment : Fragment() {
     var Tutor1: String = "55xM7Roer0Y"
     var Tutor2: String = "LdC5cKBJrXQ"
     var Tutor3: String = "t75_kC1QQLc"
-
+    var TexeTu1 : String = "แต่งหน้าสวยเปรี้ยว"
+    var TexeTu2 : String = "แต่งหน้าสวยเหวาน"
+    var TexeTu3 : String = "แต่งหน้าสวยแซ่บ"
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -38,14 +40,14 @@ class Mode4Fragment : Fragment() {
         btn_tutorial2.setOnClickListener { Dialog3() }
     }
     private fun Dialog1() {
-        SelectDialog.newInstance(Tutor1).show(fragmentManager, "select")
+        SelectDialog.newInstance(Tutor1,TexeTu1).show(fragmentManager, "select")
     }
-
     private fun Dialog2() {
-        SelectDialog.newInstance(Tutor2).show(fragmentManager, "select")
-    }
 
+        SelectDialog.newInstance(Tutor2,TexeTu2).show(fragmentManager, "select")
+    }
     private fun Dialog3() {
-        SelectDialog.newInstance(Tutor3).show(fragmentManager, "select")
+
+        SelectDialog.newInstance(Tutor3,TexeTu3).show(fragmentManager, "select")
     }
 }

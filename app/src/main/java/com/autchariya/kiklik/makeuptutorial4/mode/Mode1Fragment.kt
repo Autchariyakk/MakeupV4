@@ -1,6 +1,7 @@
 package com.autchariya.kiklik.makeuptutorial4.mode
 
 
+import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.autchariya.kiklik.makeuptutorial4.R
 import com.autchariya.kiklik.makeuptutorial4.dialog.SelectDialog
+import kotlinx.android.synthetic.main.activity_video_tutorial.*
 import kotlinx.android.synthetic.main.fragment_mode1.*
 
 
@@ -17,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_mode1.*
 fun newInstace(): Mode1Fragment {
     return Mode1Fragment()
 }
+
 
 
 
@@ -29,6 +32,9 @@ class Mode1Fragment : Fragment() {
     var Tutor1 : String = "fvX8_b4U4I8"
     var Tutor2 : String = "FY8mNzxM8uw"
     var Tutor3 : String = "zW-MqH_iYm8"
+    var TexeTu1 : String = "แต่งหน้าสวยเปรี้ยว"
+    var TexeTu2 : String = "แต่งหน้าสวยเหวาน"
+    var TexeTu3 : String = "แต่งหน้าสวยแซ่บ"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -37,10 +43,11 @@ class Mode1Fragment : Fragment() {
 
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_tutorial.setOnClickListener { Dialog1() }
+        btn_tutorial.setOnClickListener { Dialog1()}
         btn_tutorial1.setOnClickListener { Dialog2() }
         btn_tutorial2.setOnClickListener { Dialog3() }
 
@@ -48,19 +55,18 @@ class Mode1Fragment : Fragment() {
 
 
     private fun Dialog1() {
-
-        SelectDialog.newInstance(Tutor1).show(fragmentManager, "select")
+        SelectDialog.newInstance(Tutor1,TexeTu1).show(fragmentManager, "select")
     }
     private fun Dialog2() {
 
-        SelectDialog.newInstance(Tutor2).show(fragmentManager, "select")
+        SelectDialog.newInstance(Tutor2,TexeTu2).show(fragmentManager, "select")
     }
     private fun Dialog3() {
 
-        SelectDialog.newInstance(Tutor3).show(fragmentManager, "select")
-
-
+        SelectDialog.newInstance(Tutor3,TexeTu3).show(fragmentManager, "select")
     }
+
+
 //    private fun onClick(view: View){
 //        if (view.getId() == btn_tutorial.getId()) run {
 //

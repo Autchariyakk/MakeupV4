@@ -1,6 +1,7 @@
 package com.autchariya.kiklik.makeuptutorial4.style
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.Toast
 import com.autchariya.kiklik.makeuptutorial4.R
@@ -43,12 +44,18 @@ class VideoTutorial : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
         val bundle = intent.extras
         if (bundle != null) {
             res = bundle.getString("value1")
+            i = bundle.getString("Text")
+
         }
+
+
 
         toolbar_video.setNavigationOnClickListener { finish() }
 
         val youTubePlayerView = findViewById<View>(R.id.youtube_player) as YouTubePlayerView
         youTubePlayerView.initialize(API_KEY, this)
+
+        tv_detail.setText(i)
 
 //        mDb = AppDatabase.getAppDatabase(this)
 
@@ -56,9 +63,21 @@ class VideoTutorial : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
 //        btn_click.setOnClickListener({ view -> DatabaseInitializer.populateAsync(AppDatabase.getAppDatabase(this)!!) }
 //        )
 
-
-
     }
+
+//    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+//        super.onCreate(savedInstanceState, persistentState)
+//        setContentView(R.layout.activity_video_tutorial)
+//
+//            val bundle = intent.extras
+//            if (bundle != null) {
+//
+//                i = bundle.getString("Text")
+//            }
+//
+//
+//    }
+
 
 //    override fun onDestroy() {
 //        AppDatabase.destroyInstance()
